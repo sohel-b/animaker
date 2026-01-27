@@ -1,0 +1,135 @@
+
+:root {
+  --cell-width: 120px;
+  --cell-height: 32px;
+  --label-width: 70px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.toolbar {
+  margin-bottom: 8px;
+}
+
+.header-row {
+  display: grid;
+  grid-template-columns: 60px repeat(auto-fill, 100px); 
+}
+
+.header-row {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.label-column {
+  width: var(--label-width);
+}
+.label-column {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: #ddffdd;
+}
+
+.label-cell {
+  height: var(--cell-height);
+  line-height: var(--cell-height);
+  background: #ddffdd;
+  border: 1px solid #ccc;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.label-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.cell {
+  width: var(--cell-width);
+  height: var(--cell-height);
+  padding: 4px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  display: flex;
+  align-items: center;
+}
+
+.cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.cell.selected {
+  background: #cce5ff;
+}
+
+.grid-wrapper {
+  width: 100%;
+  height: calc(100vh - 80px);
+  overflow: auto;          /* 🔥 ONLY SCROLL HERE */
+  border: 1px solid #ccc;
+}
+
+.cell.active {
+  outline: 2px solid #007bff;
+  outline-offset: -2px;
+}
+
+
+.body {
+  display: flex;
+}
+
+.cells {
+  display: grid;
+}
+
+.cell {
+  border: 1px solid #ddd;
+  height: 30px;
+  padding: 4px;
+}
+
+.cell.selected {
+  background: #cce5ff;
+}
+
+.cell.active {
+  outline: 2px solid #007bff;
+}
+
+.header-cell {
+  height: var(--cell-height);
+  line-height: var(--cell-height);
+  background: #ffdddd;
+  border: 1px solid #ccc;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+.corner {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  background: #eee;
+    border: 1px solid #ccc;
+
+}
+
