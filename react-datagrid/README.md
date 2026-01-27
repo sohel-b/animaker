@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# 📊 React Spreadsheet-like DataGrid
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A spreadsheet-style DataGrid built **from scratch using React** (no third-party grid or UI libraries).  
+The project mimics core behaviors of Excel / Google Sheets such as editable cells, keyboard navigation, drag selection, copy/cut/paste, and dynamic grid expansion.
 
-## Available Scripts
+---
+---
 
-In the project directory, you can run:
+## 🛠️ Tech Stack
 
-### `npm start`
+- React (Functional Components + Hooks)
+- JavaScript (ES6+)
+- CSS Grid & Sticky Positioning
+- No third-party grid or spreadsheet libraries
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
 
-### `npm test`
+### Grid Layout
+- Fixed **header row** (columns)
+- Fixed **label column** (rows)
+- Scrollable grid body
+- Sticky headers and row labels
+- Single scroll container for perfect alignment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Editable Cells
+- Click / double-click to edit
+- **Enter** or blur → save
+- **Esc** → cancel edit
+- Local edit buffer synced with grid state
 
-### `npm run build`
+### Dynamic Rows & Columns
+- Add rows dynamically
+- Add columns dynamically
+- Grid resizes automatically
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Drag Selection
+- Click and drag to select rectangular ranges
+- Supports dragging in all directions
+- Shift + click to extend selection
+- Only body cells are selectable
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Copy / Cut / Paste
+- **Ctrl + C** → Copy selected cells
+- **Ctrl + X** → Cut selected cells
+- **Ctrl + V** → Paste data
+- Supports external paste from Excel / Google Sheets
+- Parses `\\t` (tabs) and `\\n` (new lines)
+- Automatically expands grid on paste overflow
+- Native copy/paste works inside input while editing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Keyboard Navigation
+- Arrow keys → move active cell
+- **Enter** → move down
+- **Tab / Shift + Tab** → move right / left
+- Typing starts edit mode (Excel-like)
+- Editing mode disables grid shortcuts
 
-### `npm run eject`
+### UX Improvements
+- Centralized cell dimensions using CSS variables
+- Perfect alignment between header, labels, and cells
+- Text truncation with ellipsis
+- No layout drift on scroll
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🧠 Folder Structure
+src/
+├─ components/
+│ ├─ Grid.jsx // Core grid logic & keyboard handling
+│ ├─ HeaderRow.jsx // Column headers
+│ ├─ LabelColumn.jsx // Row labels
+│ ├─ Cell.jsx // Editable cell (memoized)
+│
+├─ hooks/
+│ └─ useClipboard.js // Copy / cut / paste logic
+│
+├─ utils/
+│ └─ gridUtils.js // Grid helpers & selection normalization
+│
+├─ App.js
+├─ index.js
+└─ styles.css
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+🏗️ Setup Instructions
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. git clone https://github.com/sohel-b/react-datagrid.git
+cd react-datagrid
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies
+npm install
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Run locally
+npm start
