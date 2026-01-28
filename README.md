@@ -3,6 +3,8 @@
 A spreadsheet-style DataGrid built **from scratch using React** (no third-party grid or UI libraries).  
 The project mimics core behaviors of Excel / Google Sheets such as editable cells, keyboard navigation, drag selection, copy/cut/paste, and dynamic grid expansion.
 
+## Deployed Link: https://animaker-y9jm.vercel.app/
+
 ---
 ---
 
