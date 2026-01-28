@@ -77,5 +77,5 @@ export default function useClipboard({
 
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [selection, data, rows, cols]);
+  }, [selection, data, rows, cols, setData, setRows, setCols]);
 }
